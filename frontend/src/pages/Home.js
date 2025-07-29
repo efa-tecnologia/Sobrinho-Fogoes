@@ -83,31 +83,29 @@ function Home() {
 
 export default Home; */
 
-// pages/index.js (ou Home.js se você estiver usando esse nome)
+// pages/index.js
 import { useState } from 'react';
 
 export default function Home() {
   const [input, setInput] = useState('');
   const [resposta, setResposta] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    const response = await fetch('/api/teste', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ mensagem: input }),
-    });
+    // Aqui você pode simular qualquer lógica de resposta
+    if (input.trim() === '') {
+      setResposta('Por favor, digite algo.');
+    } else {
+      setResposta(`Você digitou: ${input}`);
+    }
 
-    const data = await response.json();
-    setResposta(data.resposta);
+    setInput('');
   };
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'Arial' }}>
-      <h1>Teste de Envio</h1>
+      <h1>Teste Frontend</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -118,6 +116,7 @@ export default function Home() {
         />
         <button type="submit">Enviar</button>
       </form>
+
       {resposta && (
         <p style={{ marginTop: '1rem' }}>
           <strong>Resposta:</strong> {resposta}
