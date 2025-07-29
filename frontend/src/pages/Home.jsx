@@ -1,5 +1,3 @@
-/*
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -81,47 +79,4 @@ function Home() {
   );
 }
 
-export default Home; */
-
-// pages/index.js
-import { useState } from 'react';
-
-export default function Home() {
-  const [input, setInput] = useState('');
-  const [resposta, setResposta] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Aqui você pode simular qualquer lógica de resposta
-    if (input.trim() === '') {
-      setResposta('Por favor, digite algo.');
-    } else {
-      setResposta(`Você digitou: ${input}`);
-    }
-
-    setInput('');
-  };
-
-  return (
-    <div style={{ padding: '2rem', fontFamily: 'Arial' }}>
-      <h1>Teste Frontend</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Digite algo"
-          style={{ padding: '0.5rem', width: '200px', marginRight: '1rem' }}
-        />
-        <button type="submit">Enviar</button>
-      </form>
-
-      {resposta && (
-        <p style={{ marginTop: '1rem' }}>
-          <strong>Resposta:</strong> {resposta}
-        </p>
-      )}
-    </div>
-  );
-}
+export default Home;
