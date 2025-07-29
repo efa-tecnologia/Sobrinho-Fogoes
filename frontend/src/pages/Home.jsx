@@ -37,7 +37,7 @@ function Home() {
   return (
     <div className="bg-white min-h-screen p-6">
       <header className="flex justify-between items-center mb-8 border-b pb-4">
-        <h1 className="text-2xl font-bold">Minha Loja</h1>
+        <h1 className="text-2xl font-bold">Sobrinho Fogoes</h1>
         <input
           type="text"
           value={busca}
